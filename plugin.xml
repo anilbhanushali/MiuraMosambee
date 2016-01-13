@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.betterlife.miura.mosambee" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MiuraMosambee</name>
+    <description>cordova plugin for mosambee device</description>
+    <js-module name="MiuraMosambee" src="www/MiuraMosambee.js">
+        <clobbers target="cordova.plugins.MiuraMosambee" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MiuraMosambee">
+                <param name="android-package" value="org.betterlife.miura.mosambee"/>
+            </feature>
+        </config-file>     
+     </platform>    
+</plugin>
