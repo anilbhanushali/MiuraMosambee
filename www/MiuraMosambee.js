@@ -1,5 +1,11 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function(arg0, success, error) {
-    exec(success, error, "MiuraMosambee", "coolMethod", [arg0]);
+exports.sale = function(amount,orderid,username,password, success, error) {
+	var arg = {
+		amount:amount,
+		orderid:orderid,
+		username:username,
+		password:password
+	}
+    exec(success, error, "MiuraMosambee", "sale", [arg]);
 };
