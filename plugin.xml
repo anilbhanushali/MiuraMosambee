@@ -9,7 +9,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="MiuraMosambee">
-                <param name="android-package" value="org.betterlife.miura.mosambee"/>
+                <param name="android-package" value="org.betterlife.miura.mosambee.MiuraMosambee"/>
             </feature>
         </config-file>   
         <source-file src="src/android/MiuraMosambee.java" target-dir="src/org/betterlife/miura/mosambee" />
