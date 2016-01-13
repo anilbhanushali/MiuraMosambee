@@ -11,6 +11,8 @@
             <feature name="MiuraMosambee">
                 <param name="android-package" value="org.betterlife.miura.mosambee"/>
             </feature>
-        </config-file>     
+        </config-file>   
+        <source-file src="src/android/MiuraMosambee.java" target-dir="src/org/betterlife/miura/mosambee" />
+        <source-file src="src/android/libs/mosambeelib_v1.0.0.007.jar" target-dir="libs" />   
      </platform>    
 </plugin>
