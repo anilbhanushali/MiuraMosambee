@@ -32,7 +32,7 @@ public class Result implements TransactionResult {
 		this.callbackContext = callbackContext;
 		this.cordova = cordova;
 		progress = new TextView(cordova.getActivity().getApplicationContext());
-    	resultObj = new JSONObject();
+    		resultObj = new JSONObject();
 		setContext(cordova.getActivity().getApplicationContext());
 		prompt(username,password,orderid,amount);
 		
@@ -44,32 +44,7 @@ public class Result implements TransactionResult {
 		
     	Runnable runnable = new Runnable() {
     		public void run() {
-		    	
-    			/*
-    			notification.dlg = createDialog(cordova);
-		    	notification.dlg.setMessage("Processing");
-		    	notification.dlg.setTitle("Capture Payment");
-		    	notification.dlg.setCancelable(false);
-		    	notification.dlg.setView(progress);
-		        
-		    	notification.dlg.setNeutralButton("Close",
-		    			new AlertDialog.OnClickListener() {
-		            		public void onClick(DialogInterface dialog, int which) {
-		            			dialog.dismiss();
-		            			callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultObj));
-		            		}
-		        	});
-	    	
-	    		notification.dlg.show();
-	    		
-	    		notification.dlg.setOnDismissListener(new OnDismissListener() {
-	    			public void onDismiss(final DialogInterface dialog) {
-	    		        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultObj));
-	    		    }
-	    		});
-	    		*/
-	    		
-	    		Runnable childRunnable = new Runnable(){
+		    	Runnable childRunnable = new Runnable(){
 	    			public void run(){
 	    				Looper.prepare();
 	    				processTransaction(username,password,orderid,amount);
@@ -77,38 +52,12 @@ public class Result implements TransactionResult {
 	    			}
 	    		};
 	    		cordova.getThreadPool().execute(childRunnable);
-	    		
-    			//processTransaction(username,password,orderid,amount);
-	    		
             };
         };
         cordova.getActivity().runOnUiThread(runnable);
     }
 	
-	private void showDialog(){
-		
-		this.dlg = createDialog(cordova);
-    	this.dlg.setMessage("Processing");
-    	this.dlg.setTitle("Capture Payment");
-    	this.dlg.setCancelable(false);
-    	this.dlg.setView(progress);
-    	
-    	this.dlg.setNeutralButton("Close",
-    			new AlertDialog.OnClickListener() {
-            		public void onClick(DialogInterface dialog, int which) {
-            			dialog.dismiss();
-            			callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultObj));
-            		}
-        	});
 	
-		this.dlg.show();
-		
-		this.dlg.setOnDismissListener(new OnDismissListener() {
-			public void onDismiss(final DialogInterface dialog) {
-		        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultObj));
-		    }
-		});
-	}
 	
 	private void processTransaction(String username,String password,String orderid,Double amount){
 		tc = new MosCallback(context);
