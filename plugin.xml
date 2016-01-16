@@ -11,7 +11,18 @@
             <feature name="MiuraMosambee">
                 <param name="android-package" value="org.betterlife.miura.mosambee.MiuraMosambee"/>
             </feature>
-        </config-file>   
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_GPS" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+		</config-file>
         <source-file src="src/android/MiuraMosambee.java" target-dir="src/org/betterlife/miura/mosambee" />
         <source-file src="src/android/Result.java" target-dir="src/org/betterlife/miura/mosambee" />
         <source-file src="src/android/libs/mosambee-miura.jar" target-dir="libs" />
